@@ -139,19 +139,12 @@ get.switching = function(s.hat){
   return(apply(s.hat,1,function(x)sum(diff(x) != 0)))
 }
 
-
-
 get.distances.Sigma = function(result,Sigma){
-  num.states = dim(Sigma[[1]])[3]
+  num.states = result$A.hat%>%nrow()
   dist.mat = matrix(NA,nrow=num.states,ncol=num.states)
   for(j in 1:num.states){
     for(k in 1:num.states){
-      if(j == 1){
-        dist.mat[j,k] = HS.norm(result$Sigma.hat[,,j]-Sigma[[k]])
-      }
-      else{
-        dist.mat[j,k] = HS.norm(result$Sigma.hat[,,sum(m[1:(j-1)])+1]-Sigma[[k]])
-      }
+      dist.mat[j,k] = HS.norm(result$Sigma.hat[,,j]-Sigma[[k]])
     }
   }
   return(dist.mat)
