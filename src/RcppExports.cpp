@@ -115,23 +115,6 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// get_emission_distribution
-void get_emission_distribution(const arma::cube& Xt, const arma::cube& u_all, const arma::vec& m, arma::cube& SampCov, arma::mat& mu_hat_next, arma::cube& Sigma_hat_next, arma::cube& Omega_hat_next, const char* penalty);
-RcppExport SEXP _dFCHMM_get_emission_distribution(SEXP XtSEXP, SEXP u_allSEXP, SEXP mSEXP, SEXP SampCovSEXP, SEXP mu_hat_nextSEXP, SEXP Sigma_hat_nextSEXP, SEXP Omega_hat_nextSEXP, SEXP penaltySEXP) {
-BEGIN_RCPP
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::cube& >::type Xt(XtSEXP);
-    Rcpp::traits::input_parameter< const arma::cube& >::type u_all(u_allSEXP);
-    Rcpp::traits::input_parameter< const arma::vec& >::type m(mSEXP);
-    Rcpp::traits::input_parameter< arma::cube& >::type SampCov(SampCovSEXP);
-    Rcpp::traits::input_parameter< arma::mat& >::type mu_hat_next(mu_hat_nextSEXP);
-    Rcpp::traits::input_parameter< arma::cube& >::type Sigma_hat_next(Sigma_hat_nextSEXP);
-    Rcpp::traits::input_parameter< arma::cube& >::type Omega_hat_next(Omega_hat_nextSEXP);
-    Rcpp::traits::input_parameter< const char* >::type penalty(penaltySEXP);
-    get_emission_distribution(Xt, u_all, m, SampCov, mu_hat_next, Sigma_hat_next, Omega_hat_next, penalty);
-    return R_NilValue;
-END_RCPP
-}
 // forward_backward_cpp
 List forward_backward_cpp(const arma::mat& Xt, const arma::mat& B, const arma::mat& mu, const arma::cube& Sigma, const arma::vec& delta);
 RcppExport SEXP _dFCHMM_forward_backward_cpp(SEXP XtSEXP, SEXP BSEXP, SEXP muSEXP, SEXP SigmaSEXP, SEXP deltaSEXP) {

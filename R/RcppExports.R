@@ -37,10 +37,6 @@ logsumexp_cpp <- function(X) {
     .Call(`_dFCHMM_logsumexp_cpp`, X)
 }
 
-get_emission_distribution <- function(Xt, u_all, m, SampCov, mu_hat_next, Sigma_hat_next, Omega_hat_next, penalty) {
-    invisible(.Call(`_dFCHMM_get_emission_distribution`, Xt, u_all, m, SampCov, mu_hat_next, Sigma_hat_next, Omega_hat_next, penalty))
-}
-
 forward_backward_cpp <- function(Xt, B, mu, Sigma, delta) {
     .Call(`_dFCHMM_forward_backward_cpp`, Xt, B, mu, Sigma, delta)
 }
